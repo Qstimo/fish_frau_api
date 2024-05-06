@@ -22,9 +22,9 @@ export const registerMessage = async (req, res) => {
         });
 };
 export const registerReview = async (req, res) => {
-    const { name, email, phone, messageUser } = req.body;
+    const { name, email, messageUser } = req.body;
     const telegramAPI = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`;
-    const message = `Отзыв посетителя:\nИмя: ${name}\nEmail: ${email}\nТелефон: ${phone}\nОтзыв: ${messageUser}}`;
+    const message = `Отзыв посетителя:\nИмя: ${name}\nEmail: ${email}\nОтзыв: ${messageUser}}`;
 
     await axios.post(telegramAPI, {
         chat_id: process.env.TELEGRAM_CHAT_ID,
