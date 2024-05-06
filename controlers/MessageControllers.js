@@ -4,9 +4,9 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export const registerMessage = async (req, res) => {
-    const { name, email, phone, date, time } = req.body;
+    const { name, email, phone, date, time,guests } = req.body;
     const telegramAPI = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`;
-    const message = `Предварительная бронь стола:\nИмя: ${name}\nEmail: ${email}\nТелефон: ${phone}\nДата: ${date}\nВремя: ${time}`;
+    const message = `Предварительная бронь стола:\nИмя: ${name}\nEmail: ${email}\nТелефон: ${phone}\nДата: ${date}\nВремя: ${time}\nКолличество гостей: ${guests}`;
 
     await axios.post(telegramAPI, {
         chat_id: process.env.TELEGRAM_CHAT_ID,
